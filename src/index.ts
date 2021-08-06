@@ -1,4 +1,6 @@
 import { convertSpeechToText } from '@/modules/ConvertSpeechToText';
+import { processText } from '@/modules/ProcessText';
+
 require('dotenv').config();
 
 const wrapper = async () => {
@@ -16,6 +18,8 @@ const wrapper = async () => {
   }
 
   const text = await convertSpeechToText(audioFile);
+
+  const processedText = processText(text, keyWords);
 };
 
 wrapper();
