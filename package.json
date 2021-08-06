@@ -4,6 +4,9 @@
   "description": "fetch rates for cryptcurrency",
   "main": "index.js",
   "dependencies": {
+    "dotenv": "^10.0.0",
+    "fs": "0.0.1-security",
+    "ibm-watson": "^6.1.1",
     "node-fetch": "^2.6.1",
     "typescript": "^4.1.3"
   },

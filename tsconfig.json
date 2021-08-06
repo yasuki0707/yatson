@@ -17,8 +17,7 @@
     "skipLibCheck": true,
     "types": ["jest", "node"],
     "paths": {
-      "@modules/*": ["./modules/*"],
-      "@utils/*": ["./utils/*"]
+      "@/*": ["./*"]
     }
   },
   "include": [
