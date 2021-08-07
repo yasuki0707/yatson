@@ -33,10 +33,14 @@ touch .env
 ```
 - copy & paste the following definitions
 ```
-API_KEY=<API_KEY>
-API_ENDPOINT=<API_ENDPOINT>
+API_KEY_STT=<API_KEY_STT>
+API_ENDPOINT_STT=<API_ENDPOINT_STT>
+API_KEY_NLU=<API_KEY_NLU>
+API_ENDPOINT_NLU=<API_ENDPOINT_NLU>
 ```
-<API_KEY> and <API_ENDPOINT> are credentials you can get after creating IBM account and running Watson instance. See [here](https://cloud.ibm.com/registration?target=/developer/watson&cm_sp=WatsonPlatform-WatsonServices-_-OnPageNavLink-IBMWatson_SDKs-_-Node).
+<API_KEY_STT> and <API_ENDPOINT_STT>: credentials to use Speech To Text API
+<API_KEY_NLU> and <API_ENDPOINT_NLU>: credentials to use Natural Language Understanding API
+You can get these credentials after creating IBM account and running Watson instance. See [here](https://cloud.ibm.com/registration?target=/developer/watson&cm_sp=WatsonPlatform-WatsonServices-_-OnPageNavLink-IBMWatson_SDKs-_-Node).
 
 ### build the project
 ```

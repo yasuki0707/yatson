@@ -12,12 +12,12 @@ export const convertSpeechToText = async (
     model: getAudioModel(file)
   };
 
-  const API_KEY = process.env.API_KEY as string;
-  const API_ENDPOINT = process.env.API_ENDPOINT as string;
+  const API_KEY_STT = process.env.API_KEY_STT as string;
+  const API_ENDPOINT_STT = process.env.API_ENDPOINT_STT as string;
 
   const speechToText = new SpeechToText({
-    authenticator: new IamAuthenticator({ apikey: API_KEY }),
-    serviceUrl: API_ENDPOINT
+    authenticator: new IamAuthenticator({ apikey: API_KEY_STT }),
+    serviceUrl: API_ENDPOINT_STT
   });
 
   try {

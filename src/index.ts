@@ -1,4 +1,5 @@
 import { convertSpeechToText } from '@/modules/ConvertSpeechToText';
+import { judgeAudioJapanese } from '@/modules/JudgeAudioJapanese';
 import { outputToCsv } from '@/modules/OutputToCsv';
 import { outputToStdout } from '@/modules/OutputToStdout';
 import { processText } from '@/modules/ProcessText';
@@ -23,6 +24,15 @@ const wrapper = async () => {
   if (!text) {
     console.log('オーディオファイルをテキストに変換できませんでした。');
     return;
+  }
+
+  // check if audio data is right for Japanese
+  // this could be acheived using natural language understanding
+  // by processing converted text with this feature, we can judge statistically this is for Japanese or not
+  if (!(await judgeAudioJapanese(text))) {
+    console.log(
+      '指定されたオーディオファイルは日本語音声でない可能性が高いです。'
+    );
   }
 
   // process text as you want
