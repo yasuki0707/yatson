@@ -1,4 +1,4 @@
-import { TSpeechToTextResponse } from '@/types/SpeechRecognitionResults';
+import { getAudioModel, TSpeechToTextResponse } from '@/types/SpeechToTextV1';
 import * as fs from 'fs';
 import { IamAuthenticator } from 'ibm-watson/auth';
 import SpeechToText = require('ibm-watson/speech-to-text/v1');
@@ -9,8 +9,7 @@ export const convertSpeechToText = async (
   const params = {
     audio: fs.createReadStream(file),
     contentType: 'application/octet-stream',
-    // model: 'ja-JP_BroadbandModel'
-    model: 'ja-JP_NarrowbandModel'
+    model: getAudioModel(file)
   };
 
   const API_KEY = process.env.API_KEY as string;
