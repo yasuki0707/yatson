@@ -40,7 +40,10 @@
     "start": "node .",
     "eslint": "eslint src/index.ts",
     "format": "prettier --write '**/*.{js,ts,json}'",
-    "test": "jest"
+    "test": "jest",
+    "tool:audio": "ts-node -r tsconfig-paths/register ./src/tools/CheckAudioLocaleTool.ts",
+    "tool:audio:ja": "npm run tool:audio ja_JP",
+    "tool:audio:en": "npm run tool:audio en_US"
   },
   "author": "yasu",
   "license": "ISC"

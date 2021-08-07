@@ -1,7 +1,11 @@
+import { TLocale } from '@/types/Locale';
 import { IamAuthenticator } from 'ibm-watson/auth';
 import NaturalLanguageUnderstandingV1 = require('ibm-watson/natural-language-understanding/v1');
 
-export const judgeAudioJapanese = async (text: string): Promise<Boolean> => {
+export const checkAudioLocale = async (
+  text: string,
+  locale: TLocale
+): Promise<Boolean> => {
   const API_KEY_NLU = process.env.API_KEY_NLU as string;
   const API_ENDPOINT_NLU = process.env.API_ENDPOINT_NLU as string;
 
@@ -23,7 +27,7 @@ export const judgeAudioJapanese = async (text: string): Promise<Boolean> => {
     ?.map((k) => k.text ?? '')
     .filter(Boolean);
 
-  // TODO: judge from detected `words` if original text is regarded as Japanese
-  // There being a few WIERD words suggests this is not likely Japanese, hence the original audio is not Japanese.
+  // TODO: judge from detected `words` and `locale` if original text is regarded as locale
+  // There being a few WIERD words suggests this is not likely locale, hence the original audio is not locale.
   return true;
 };

@@ -79,3 +79,17 @@ you can specify multiple keyWords.
 ### Stdout
 format is the same with CSV.  
 just outputted in the console.
+
+---
+
+## TEST
+
+### Audio file language verification
+check if specified audio file is Japanese
+```
+npm run tool:audio:ja <audio_file>
+```
+`true` will be outputted if audio data is Japanese, otherwise `false`.  
+**logic**
+1. analyze text converted from audio data and extract some words using [Natural Language Understanding API](https://cloud.ibm.com/docs/services/natural-language-understanding/getting-started.html).
+2. **[unimplemented]** judge from extracted words whether it is likely Japanese audio data.
