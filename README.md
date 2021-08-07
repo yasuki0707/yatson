@@ -84,7 +84,10 @@ just outputted in the console.
 
 ## TEST
 ### Unit test
-brabra
+```
+npm run test
+```
+see `src/__tests__/**` for more details.
 
 
 ### Audio file language verification
