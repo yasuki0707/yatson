@@ -43,7 +43,8 @@
     "test": "jest",
     "tool:audio": "ts-node -r tsconfig-paths/register ./src/tools/CheckAudioLocaleTool.ts",
     "tool:audio:ja": "npm run tool:audio ja_JP",
-    "tool:audio:en": "npm run tool:audio en_US"
+    "tool:audio:en": "npm run tool:audio en_US",
+    "tool:audio:size": "ts-node -r tsconfig-paths/register ./src/tools/CheckAudioSizeTool.ts"
   },
   "author": "yasu",
   "license": "ISC"

@@ -1,4 +1,5 @@
 import { checkAudioLocale } from '@/modules/CheckAudioLocale';
+import { AUDIO_FILE_SIZE_MAX, checkAudioSize } from '@/modules/CheckAudioSize';
 import { convertSpeechToText } from '@/modules/ConvertSpeechToText';
 import { outputToCsv } from '@/modules/OutputToCsv';
 import { outputToStdout } from '@/modules/OutputToStdout';
@@ -12,6 +13,13 @@ const wrapper = async () => {
     console.log('オーディオファイルが指定されていません。');
     return;
   }
+  if (!(await checkAudioSize(audioFile))) {
+    console.log(
+      `オーディオファイルのサイズが${AUDIO_FILE_SIZE_MAX}MBを超えています。`
+    );
+    return;
+  }
+
   // keyWords to search within text converted from audio data
   const keyWords = process.argv.slice(3);
   if (!keyWords.length) {
