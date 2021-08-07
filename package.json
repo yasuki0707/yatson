@@ -1,12 +1,15 @@
 {
-  "name": "cryptcurrency-rate",
+  "name": "yatson",
   "version": "1.0.0",
-  "description": "fetch rates for cryptcurrency",
+  "description": "convert audio data to text, then process that text",
   "main": "index.js",
   "dependencies": {
+    "@types/json2csv": "^5.0.3",
     "dotenv": "^10.0.0",
     "fs": "0.0.1-security",
     "ibm-watson": "^6.1.1",
+    "iconv-lite": "^0.6.3",
+    "json2csv": "^5.0.6",
     "node-fetch": "^2.6.1",
     "typescript": "^4.1.3"
   },

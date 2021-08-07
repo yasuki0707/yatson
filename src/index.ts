@@ -1,4 +1,5 @@
 import { convertSpeechToText } from '@/modules/ConvertSpeechToText';
+import { outputToCsv } from '@/modules/OutputToCsv';
 import { processText } from '@/modules/ProcessText';
 
 require('dotenv').config();
@@ -20,6 +21,9 @@ const wrapper = async () => {
   const text = await convertSpeechToText(audioFile);
 
   const processedText = processText(text, keyWords);
+
+  // output processed data to external file/stdout
+  await outputToCsv(processedText, 'output.csv');
 };
 
 wrapper();
