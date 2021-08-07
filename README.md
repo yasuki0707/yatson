@@ -70,6 +70,7 @@ you can specify multiple keyWords.
     - corresponding to pos.
 - separator: `\r\n`
 - delimiter: `,`
+- encoding: `utf8` or `Shift_JIS`
 
 ### Stdout
 format is the same with CSV.  
