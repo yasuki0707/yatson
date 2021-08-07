@@ -29,9 +29,5 @@ export const processText = (
       i = j + 1;
     }
   });
-
-  foundKeyWords.forEach((k) =>
-    console.log(k.keyWord, k.pos, k.redundantKeyWord)
-  );
   return foundKeyWords;
 };
