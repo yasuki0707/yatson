@@ -4,7 +4,7 @@ import { parse } from 'json2csv';
 
 type TEncoding = 'utf8' | 'Shift_JIS';
 
-const SEPARATOR = '\r\n';
+export const SEPARATOR = '\r\n';
 const OUTPUT_PATH = 'output/csv/';
 
 export const outputToCsv = async <T>(
@@ -12,11 +12,7 @@ export const outputToCsv = async <T>(
   csvFile: string,
   encoding?: TEncoding
 ) => {
-  // generate header from data object dynamically
-  const fields = Object.keys(data[0]);
-
-  // convert array data to csv string with designated separator
-  const csvString = parse(data, { eol: SEPARATOR, fields: fields });
+  const csvString = generateCsvString(data);
 
   // encode csv string with designated encoding with default being set to utf8
   const buf = encode(csvString, encoding || 'utf8');
@@ -25,4 +21,13 @@ export const outputToCsv = async <T>(
   fs.writeFile(`${OUTPUT_PATH}${csvFile}`, buf, () => {
     console.log('done');
   });
+};
+
+export const generateCsvString = <T>(data: T[]) => {
+  if (!data.length) return '';
+  // generate header from data object dynamically
+  const fields = Object.keys(data[0]);
+
+  // convert array data to csv string with designated separator
+  return parse(data, { eol: SEPARATOR, fields: fields });
 };

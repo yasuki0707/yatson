@@ -87,7 +87,7 @@ just outputted in the console.
 ```
 npm run test
 ```
-see `src/__tests__/**` for more details.
+Testcases are in `src/__tests__/**` for more details.
 
 
 ### Audio file language verification
