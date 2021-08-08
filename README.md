@@ -85,13 +85,31 @@ just outputted in the console.
 ## TEST
 ### Unit test
 ```
-npm run test
+npm run test:ut
 ```
 Testcases are in `src/__tests__/**` for more details.
 
+### Intergration test
+```
+// ok
+npm run test:it:ok
 
-### Audio file language verification
-check if specified audio file is Japanese/English
+// ng - neither audio file nor keyWords are specified
+npm run test:it:ng1
+
+// ng - keyWords are not specified
+npm run test:it:ng2
+
+// ng - audio file is not specified
+npm run test:it:ng3
+
+// ng - non-audio file is specified as if it is
+npm run test:it:ng4
+```
+
+### Audio file verification test
+#### language  
+check if specified audio file is Japanese/English  
 ```
 // for Japanese audio
 npm run tool:audio:ja <audio_file>
@@ -100,11 +118,11 @@ npm run tool:audio:ja <audio_file>
 npm run tool:audio:en <audio_file>
 ```
 `true` will be outputted if audio data is Japanese, otherwise `false`.  
-**logic**
+*logic*
 1. analyze text converted from audio data and extract some words using [Natural Language Understanding API](https://cloud.ibm.com/docs/services/natural-language-understanding/getting-started.html).
 2. **[unimplemented]** judge from extracted words whether it is likely Japanese audio data.
 
-### Audio file size verification
+#### file size verification  
 check if specified audio file is within designated size
 ```
 npm run tool:audio:size <audio_file>
