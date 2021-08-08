@@ -2,6 +2,8 @@ import { TLocale } from '@/types/Locale';
 import { IamAuthenticator } from 'ibm-watson/auth';
 import NaturalLanguageUnderstandingV1 = require('ibm-watson/natural-language-understanding/v1');
 
+// EXTENSION: if specify en_US for the 2nd argument(locale), you can check if audio data is in English
+//            (and for the other languages once TLocale is added)
 export const checkAudioLocale = async (
   text: string,
   locale: TLocale

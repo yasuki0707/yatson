@@ -1,4 +1,4 @@
-import { generateCsvString, SEPARATOR } from '@/modules/OutputToCsv';
+import { generateCsvString, SEPARATOR } from '@/modules/Output/OutputToCsv';
 import { TSearchedText } from '@/types/SearchedText';
 
 describe('Text processed should be converted to CSV string correctly.', (): void => {

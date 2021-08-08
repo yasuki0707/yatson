@@ -1,5 +1,6 @@
 import { TSearchedText } from '@/types/SearchedText';
 
+// EXTENSION: if new logic is added, you can process text as you like with the same arguments
 export const processText = (
   text: string,
   keyWords: string[]

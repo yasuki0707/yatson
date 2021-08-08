@@ -7,6 +7,9 @@ type TEncoding = 'utf8' | 'Shift_JIS';
 export const SEPARATOR = '\r\n';
 const OUTPUT_PATH = 'output/csv/';
 
+// EXTENSION: data could take whatever is specified.
+//            so if there are another items to be listed in CSV, you can just pass them to this function to output CSV
+//            without changing anything. Even headers are generated automatically by generateCsvString().
 export const outputToCsv = async <T>(
   data: T[],
   csvFile: string,

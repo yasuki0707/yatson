@@ -1,11 +1,13 @@
 import { checkAudioLocale } from '@/modules/CheckAudioLocale';
-import { AUDIO_FILE_SIZE_MAX, checkAudioSize } from '@/modules/CheckAudioSize';
+import { checkAudioSize } from '@/modules/CheckAudioSize';
 import { convertSpeechToText } from '@/modules/ConvertSpeechToText';
-import { outputToCsv } from '@/modules/OutputToCsv';
-import { outputToStdout } from '@/modules/OutputToStdout';
+import { outputToCsv } from '@/modules/Output/OutputToCsv';
+import { outputToStdout } from '@/modules/Output/OutputToStdout';
 import { processText } from '@/modules/ProcessText';
 
 require('dotenv').config();
+
+const outputFileName = 'output.csv';
 
 const wrapper = async () => {
   const audioFile = process.argv[2];
@@ -15,7 +17,7 @@ const wrapper = async () => {
   }
   if (!(await checkAudioSize(audioFile))) {
     console.log(
-      `オーディオファイルのサイズが${AUDIO_FILE_SIZE_MAX}MBを超えています。`
+      `オーディオファイルのサイズが${process.env.AUDIO_FILE_SIZE_MAX}MBを超えています。`
     );
     return;
   }
@@ -43,7 +45,7 @@ const wrapper = async () => {
     );
   }
 
-  // process text as you want
+  // process text so that requirements are met
   const processedText = processText(text, keyWords);
   if (!processedText.length) {
     console.log('検索単語が検出されませんでした。');
@@ -51,7 +53,7 @@ const wrapper = async () => {
   }
 
   // output processed data to external file/stdout
-  await outputToCsv(processedText, 'output.csv');
+  await outputToCsv(processedText, outputFileName);
   await outputToStdout(processedText);
 };
 
