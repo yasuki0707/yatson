@@ -3,6 +3,11 @@ import * as fs from 'fs';
 import { IamAuthenticator } from 'ibm-watson/auth';
 import SpeechToText = require('ibm-watson/speech-to-text/v1');
 
+/**
+ *
+ * @param file path of audio file
+ * @returns text extracted from audio data
+ */
 export const convertSpeechToText = async (
   file: string
 ): Promise<string | null> => {

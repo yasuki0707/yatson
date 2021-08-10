@@ -1,6 +1,12 @@
 import { TSearchedText } from '@/types/SearchedText';
 
 // EXTENSION: if new logic is added, you can process text as you like with the same arguments
+/**
+ *
+ * @param text text extracted from audio data to be processed for CSV
+ * @param keyWords keywords to be searched in text
+ * @returns data to be converted to CSV which consists user-defined items.
+ */
 export const processText = (
   text: string,
   keyWords: string[]

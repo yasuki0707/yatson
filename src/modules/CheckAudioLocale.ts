@@ -4,6 +4,12 @@ import NaturalLanguageUnderstandingV1 = require('ibm-watson/natural-language-und
 
 // EXTENSION: if specify en_US for the 2nd argument(locale), you can check if audio data is in English
 //            (and for the other languages once TLocale is added)
+/**
+ *
+ * @param text text to be checked if it matches locale specified with `locale`
+ * @param locale locale which text is checked if it matches.
+ * @returns whether text matches locale.
+ */
 export const checkAudioLocale = async (
   text: string,
   locale: TLocale

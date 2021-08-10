@@ -10,6 +10,12 @@ const OUTPUT_PATH = 'output/csv/';
 // EXTENSION: data could take whatever is specified.
 //            so if there are another items to be listed in CSV, you can just pass them to this function to output CSV
 //            without changing anything. Even headers are generated automatically by generateCsvString().
+/**
+ *
+ * @param data data which is converted to and outputted as CSV. type T would take `ANY` type.
+ * @param csvFile filename with which CSV is outputted.
+ * @param encoding encoding of CSV file, will take `utf8` or `Shift_JIS`.
+ */
 export const outputToCsv = async <T>(
   data: T[],
   csvFile: string,
